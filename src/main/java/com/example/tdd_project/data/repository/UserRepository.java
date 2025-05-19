@@ -1,4 +1,4 @@
-package com.example.tdd_project.data.handler.repository;
+package com.example.tdd_project.data.repository;
 
 import com.example.tdd_project.data.dto.UserDto;
 import com.example.tdd_project.data.entity.User;

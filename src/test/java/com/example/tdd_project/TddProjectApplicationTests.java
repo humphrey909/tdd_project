@@ -1,11 +1,23 @@
 package com.example.tdd_project;
 
+import com.example.tdd_project.data.dto.UserDto;
+import com.example.tdd_project.data.dto.XcQuizListDto;
+import com.example.tdd_project.data.entity.User;
+import com.example.tdd_project.data.entity.XcQuizList;
+import com.example.tdd_project.data.repository.UserRepository;
+import com.example.tdd_project.data.repository.XcQuizListRepository;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.Optional;
+
 import static org.mockito.Matchers.any;
 import static org.assertj.core.api.Assertions.assertThat;
 
-@SpringBootTest
+
+@SpringBootTest(properties = {"spring.profiles.active=test"})   // ✅ test profile 강제 적용
+//@SpringBootTest
 class TddProjectApplicationTests {
 
 //	@Mock
@@ -33,6 +45,26 @@ class TddProjectApplicationTests {
 //    }
 
 
+//    @Autowired
+//    private UserRepository userRepository;
+
+
+    @Autowired
+    private XcQuizListRepository xcQuizListRepository;
+
     @Test
-    void contextLoads() {}
+    void contextLoads() {
+        // ✅ Spring Context가 정상적으로 떴는지 확인
+        assertThat(xcQuizListRepository).isNotNull();
+    }
+
+    @Test
+    void dbConnectionTest() {
+        Optional<XcQuizList> optionalUser = Optional.ofNullable(xcQuizListRepository.findByIdx(1));
+        XcQuizList quizListData = optionalUser.orElse(null);
+        assertThat(quizListData).isNotNull();
+        assertThat(quizListData.getIdx()).isEqualTo(1);
+
+        System.out.println("조회된 이름: " + quizListData.getQText());
+    }
 }

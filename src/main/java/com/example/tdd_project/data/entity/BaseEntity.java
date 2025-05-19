@@ -18,22 +18,28 @@ import javax.persistence.MappedSuperclass;
 @EntityListeners(AuditingEntityListener.class)
 public class BaseEntity {
 
-    @CreatedDate
+    /*
+    @CreatedBy
     @Column(updatable = false)
-    private LocalDateTime createdAt;
+    private String createdBy;
+    */
+    @CreatedDate
+//    @Column(updatable = false)
+    @Column(name = "create_st")
+    private LocalDateTime createSt;
 
-  /*
-  @CreatedBy
-  @Column(updatable = false)
-  private String createdBy;
-  */
-
+    /*
+    @LastModifiedBy
+    private String updatedBy;
+    */
     @LastModifiedDate
-    private LocalDateTime updatedAt;
+    private LocalDateTime updateSt;
+    /*
+      @LastModifiedBy
+      private String updatedBy;
+    */
+    @LastModifiedDate
+    private LocalDateTime deleteSt;
 
-  /*
-  @LastModifiedBy
-  private String updatedBy;
-  */
 
 }

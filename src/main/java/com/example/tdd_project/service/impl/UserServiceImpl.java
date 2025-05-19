@@ -3,6 +3,7 @@ package com.example.tdd_project.service.impl;
 import com.example.tdd_project.data.dto.UserDto;
 import com.example.tdd_project.data.entity.User;
 import com.example.tdd_project.data.handler.UserDataHandler;
+import com.example.tdd_project.exception.BadRequestException;
 import com.example.tdd_project.service.UserService;
 
 import org.slf4j.LoggerFactory;
@@ -38,6 +39,10 @@ public class UserServiceImpl implements UserService {
     public UserDto getUser(Long userId) {
         LOGGER.info("[getUser] userDataHandler 로 상품 정보 조회 요청");
         User user = userDataHandler.getUserEntity(userId);
+
+        if (user.getId() == null || user.getId() <= 0) {
+            throw new BadRequestException("유효하지 않은 userId입니다.");
+        }
 
         LOGGER.info("[getUser] Entity 객체를 DTO 객체로 변환 작업. productId : {}", user.getId());
         UserDto userDto =

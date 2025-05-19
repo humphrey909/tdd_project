@@ -35,6 +35,11 @@ public class UserController {
 
         UserDto userDto = userService.getUser(userId);
 
+        LOGGER.info("[getProduct] perform {} of Around Hub API.", userDto.getId());
+        LOGGER.info("[getProduct] perform {} of Around Hub API.", userDto.getName());
+
+
+
         LOGGER.info(
                 "[getProduct] Response :: productId = {}, productName = {}, Response Time = {}ms",
                 userDto.getId(),

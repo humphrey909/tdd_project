@@ -2,9 +2,7 @@ package com.example.tdd_project.data.handler.impl;
 
 
 import com.example.tdd_project.data.dao.UserDAO;
-import com.example.tdd_project.data.entity.User;
 import com.example.tdd_project.data.entity.XcQuizList;
-import com.example.tdd_project.data.handler.UserDataHandler;
 import com.example.tdd_project.data.handler.XcQuizListDataHandler;
 import com.example.tdd_project.service.impl.UserServiceImpl;
 import com.example.tdd_project.service.impl.XcQuizListServiceImpl;

@@ -1,8 +1,5 @@
 package com.example.tdd_project.service.impl;
 
-import com.example.tdd_project.data.dto.UserDto;
-import com.example.tdd_project.data.entity.User;
-import com.example.tdd_project.data.handler.UserDataHandler;
 import com.example.tdd_project.exception.BadRequestException;
 import com.example.tdd_project.service.UserService;
 

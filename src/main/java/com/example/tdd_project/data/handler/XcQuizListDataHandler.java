@@ -1,6 +1,5 @@
 package com.example.tdd_project.data.handler;
 
-import com.example.tdd_project.data.entity.User;
 import com.example.tdd_project.data.entity.XcQuizList;
 
 public interface XcQuizListDataHandler {

@@ -1,6 +1,5 @@
 package com.example.tdd_project.controller;
 
-import com.example.tdd_project.data.dto.UserDto;
 import com.example.tdd_project.service.UserService;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

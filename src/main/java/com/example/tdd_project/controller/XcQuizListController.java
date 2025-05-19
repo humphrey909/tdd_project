@@ -1,6 +1,5 @@
 package com.example.tdd_project.controller;
 
-import com.example.tdd_project.data.dto.UserDto;
 import com.example.tdd_project.data.dto.XcQuizListDto;
 import com.example.tdd_project.service.XcQuizListService;
 import org.slf4j.Logger;
@@ -28,19 +27,20 @@ public class XcQuizListController {
 
         long startTime = System.currentTimeMillis();
 //        LOGGER.info("[getProduct] perform {} of Around Hub API.");
-        LOGGER.info("[getProduct] perform {} of Around Hub API.", "getProduct");
+        LOGGER.info("[getProduct] perform {} of Around Hub API.", "getQuizList");
+        LOGGER.info("[getProduct] perform {} of Around Hub API.", startTime);
 
-        XcQuizListDto quizListDto = xcQuizListService.getQuizList(idx);
+        XcQuizListDto quizListDto = xcQuizListService.getQuizByIdx(idx);
 
-        LOGGER.info("[getProduct] perform {} of Around Hub API.", quizListDto.getIdx());
-        LOGGER.info("[getProduct] perform {} of Around Hub API.", quizListDto.getqText());
+//        LOGGER.info("[getProduct] perform {} of Around Hub API.", quizListDto.getIdx());
+//        LOGGER.info("[getProduct] perform {} of Around Hub API.", quizListDto.getTitle());
 
 
 
         LOGGER.info(
                 "[getProduct] Response :: productId = {}, productName = {}, Response Time = {}ms",
                 quizListDto.getIdx(),
-                quizListDto.getqText(),
+                quizListDto.getTitle(),
                 (System.currentTimeMillis() - startTime));
         return quizListDto;
     }

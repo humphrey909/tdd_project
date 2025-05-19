@@ -10,47 +10,35 @@ import org.springframework.data.redis.core.RedisHash;
 @Builder
 @RedisHash(value = "xc_quiz_list", timeToLive = 60)
 public class XcQuizListDto {
+    // getter
+    @Getter
     private int idx;
-    String type;
 
+    @Getter
+    int type;
+
+    @Getter
     String title;
 
+    @Getter
     String qText;
 
+    @Getter
     String qImg;
 
+    @Getter
     String solution;
 
+    @Getter
     String showSolution;
 
-    // getter
-    public int getIdx() {
-        return idx;
-    }
+//    public Integer getType() {
+//        return type;
+//    }
 
-    public String getType() {
-        return type;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getqText() {
-        return qText;
-    }
-
-    public String getqImg() {
-        return qImg;
-    }
-
-    public String getSolution() {
-        return solution;
-    }
-
-    public String getShowSolution() {
-        return showSolution;
-    }
+//    public String getShowSolution() {
+//        return showSolution;
+//    }
 
 //    // @Size(min = 8, max = 8) // abcdefg
 //    @NotNull private String productId;
